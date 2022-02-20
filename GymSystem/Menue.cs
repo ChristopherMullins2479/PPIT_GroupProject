@@ -16,5 +16,27 @@ namespace GymSystem
         {
             InitializeComponent();
         }
+
+        private void mainMenue_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void bookDayOffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -19,6 +19,10 @@ namespace GymSystem
             passwordEntry.PasswordChar = '*';
         }
 
+        //runs when loginButton is pressed
+        //will gather text from the two text boxes
+        //will create a new Instance of the sqlConnection class
+        //will verify if the login is a sucess
         private void button1_Click(object sender, EventArgs e)
         {
             username = usernameEntry.Text;
@@ -28,7 +32,11 @@ namespace GymSystem
 
             if(login == false)
             {
+                //sets the error message to visiable
+                //empty the password and user entry boxes
                 loginErrorMessage.Visible = true;
+                passwordEntry.Text = "";
+                usernameEntry.Text = "";
                 Console.WriteLine(username + " " + password);
             }
             else
