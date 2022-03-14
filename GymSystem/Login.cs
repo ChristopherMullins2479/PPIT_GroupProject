@@ -27,10 +27,17 @@ namespace GymSystem
         {
             username = usernameEntry.Text;
             password = passwordEntry.Text;
-            sqlConnections sc = new sqlConnections();
-            bool login = sc.verifyLogin(username, password);
 
-            if(login == false)
+            sqlConnections sc = new sqlConnections();
+
+            employee e1 = new employee();
+            e1.SetUsername(username);
+            e1.SetPassword(password);
+
+            bool login = sc.verifyLogin(username, password);
+            //sc.test();
+
+            if (login == false)
             {
                 //sets the error message to visiable
                 //empty the password and user entry boxes

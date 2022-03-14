@@ -12,6 +12,8 @@ namespace GymSystem
 {
     public partial class Menue : Form
     {
+        Boolean admin;
+        employee e1 = new employee();
         public Menue()
         {
             InitializeComponent();
@@ -27,6 +29,10 @@ namespace GymSystem
             Login login = new Login();
             login.Show();
             this.Hide();
+
+            //output message
+            String username = e1.GetUsername();
+            Console.WriteLine(username + " has logged out");
         }
 
         private void bookDayOffToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,6 +43,26 @@ namespace GymSystem
         private void viewInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void shiftsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sqlConnections sc = new sqlConnections();
+            admin = sc.getEmployeeAccess(admin);
+
+            if (admin)
+            {
+                MessageBox.Show("Admin");
+            }
+            else
+            {
+                MessageBox.Show("only Admin can Edit");
+            }
         }
     }
 }
