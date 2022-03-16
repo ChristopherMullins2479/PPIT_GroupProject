@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GYMDATABASE;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,16 +29,21 @@ namespace GymSystem
             username = usernameEntry.Text;
             password = passwordEntry.Text;
 
-            sqlConnections sc = new sqlConnections();
+            //sqlConnections sc = new sqlConnections();
+            DBAccess dba = new DBAccess();
+            DataTable employeeLogin = new DataTable();
 
-            employee e1 = new employee();
-            e1.SetUsername(username);
-            e1.SetPassword(password);
+            //employee e1 = new employee();
+            //e1.SetUsername(username);
+            //e1.SetPassword(password);
 
-            bool login = sc.verifyLogin(username, password);
+            //bool login = sc.verifyLogin(username, password);
             //sc.test();
 
-            if (login == false)
+            String logInQuery = "SELECT * from employeeLogin WHERE username ='" + username + "' AND password = '" + password + "'";
+            dba.readDatathroughAdapter(logInQuery, employeeLogin);
+
+            if (employeeLogin.Rows.Count == 0)
             {
                 //sets the error message to visiable
                 //empty the password and user entry boxes
@@ -45,6 +51,7 @@ namespace GymSystem
                 passwordEntry.Text = "";
                 usernameEntry.Text = "";
                 Console.WriteLine(username + " " + password);
+                dba.closeConn();
             }
             else
             {
@@ -52,7 +59,7 @@ namespace GymSystem
                 Menue menue = new Menue();
                 menue.Show();
                 this.Hide();
-                
+                dba.closeConn();
             }
             
         }

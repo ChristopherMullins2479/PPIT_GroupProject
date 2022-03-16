@@ -13,13 +13,11 @@ namespace GymSystem
 
         public Boolean verifyLogin(String username,String password)
         {
+            String logInQuery = "SELECT * from employeeLogin WHERE username ='" + username +"' AND password = '"+password+"'";
             bool loginVerifed = false;
-            if(username.Equals("test") && password.Equals("test"))
-            {
-                loginVerifed = true;
-                Console.WriteLine("login");
-            }
 
+            //check login details 
+            
             return loginVerifed;
         }
 

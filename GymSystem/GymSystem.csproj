@@ -52,6 +52,7 @@
     <Compile Include="clientInfo.Designer.cs">
       <DependentUpon>clientInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="DBAccess.cs" />
     <Compile Include="employee.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
