@@ -17,7 +17,8 @@ namespace GYMDATABASE
         private static SqlDataAdapter adapter = new SqlDataAdapter();
         public SqlTransaction DbTran;
 
-        private static string strConnString = "Data Source=(localhost);Initial Catalog=SocialNetwork;Integrated Security=True";
+        private static string strConnString = "server=localhost;user id = root; database=gymdb";
+
 
 
 
